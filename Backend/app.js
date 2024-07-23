@@ -14,6 +14,7 @@ app.use(
     origin: [process.env.FRONTEND_URL, process.env.DASHBOARD_URL], // Allow requests from these origins
     methods: ["GET", "POST", "PUT", "DELETE"], // Allow these HTTP methods
     credentials: true, // Allow credentials (cookies, authorization headers, etc.)
+    allowedHeaders: ["Content-Type", "Authorization"], // Allow these headers
   })
 );
 // Middleware to parse cookies from the request headers
