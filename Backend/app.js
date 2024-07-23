@@ -21,7 +21,7 @@ app.use((req, res, next) => {
 
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL || process.env.DASHBOARD_URL, // Allow requests from these origins
+    origin: [process.env.FRONTEND_URL, process.env.DASHBOARD_URL], // Allow requests from these origins
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Allow these HTTP methods
     allowedHeaders: ["Content-Type", "Authorization"], // Allow these headers
     credentials: true, // Allow credentials (cookies, authorization headers, etc.)
