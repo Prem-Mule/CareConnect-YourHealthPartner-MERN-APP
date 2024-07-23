@@ -14,9 +14,9 @@ const generateTokens = (user, message, statuscode, res) => {
       ), // Cookie expiry set to X days
       // Cookie expiry set to X days
       httpOnly: true,
-      SameSite: "None", // Ensures the cookie is not sent with cross-site requests
+      sameSite: "None", // Ensures the cookie is sent with cross-site requests
+      secure: true, // Ensures the cookie is only sent over HTTPS
     })
-
     .json({
       success: true,
       message,
