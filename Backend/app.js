@@ -9,6 +9,16 @@ const { messageRouter } = require("./Router/messageRouter.js");
 const { userRouter } = require("./Router/userRouter.js");
 const { appointmentRouter } = require("./Router/appointmentRouter.js");
 // Middleware for handling CORS (Cross-Origin Resource Sharing) for frontend and dashboard URLs
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+  );
+  next();
+});
+
 app.use(
   cors({
     origin: process.env.FRONTEND_URL || process.env.DASHBOARD_URL, // Allow requests from these origins
