@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import { Navigate } from "react-router-dom";
 import { usercontext } from "../helper/Appwrapper";
 import { FaClinicMedical } from "react-icons/fa";
+const appUrl = import.meta.env.VITE_API_URL;
 
 const Messages = () => {
   const [messages, setMessages] = useState([]);
@@ -13,7 +14,8 @@ const Messages = () => {
     const fetchMessages = async () => {
       try {
         const { data } = await axios.get(
-          "http://localhost:4000/api/getallmessages",
+          `${appUrl}/api/getallmessages`,
+          // "http://localhost:4000/api/getallmessages",
           { withCredentials: true }
         );
         console.log(data);

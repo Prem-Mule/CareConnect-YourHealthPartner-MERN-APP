@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import axios from "axios";
 import { usercontext } from "../helper/AppWrapper.jsx";
 import { FaClinicMedical } from "react-icons/fa";
+const appUrl = import.meta.env.VITE_API_URL;
 
 const AddnewDoctor = () => {
   const { isAuthenticated, setIsAuthenticated } = useContext(usercontext);
@@ -61,7 +62,8 @@ const AddnewDoctor = () => {
       formData.append("doctAvatar", docAvatar);
       await axios
         .post(
-          "http://localhost:4000/register/v1/doctor/addnewdoctor",
+          `${appUrl}/register/v1/doctor/addnewdoctor`,
+          // "http://localhost:4000/register/v1/doctor/addnewdoctor",
           formData,
           {
             withCredentials: true,

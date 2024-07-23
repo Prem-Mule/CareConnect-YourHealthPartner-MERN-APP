@@ -8,9 +8,11 @@ import { MdAddModerator } from "react-icons/md";
 import { IoPersonAddSharp } from "react-icons/io5";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { usercontext } from "../helper/Appwrapper";
 import "../App.css";
+const appUrl = import.meta.env.VITE_API_URL;
+
 const Sidebar = () => {
   const [show, setShow] = useState(false);
 
@@ -19,7 +21,8 @@ const Sidebar = () => {
   const handleLogout = async () => {
     try {
       let res = await axios.get(
-        "http://localhost:4000/register/v1/admin/logout",
+        `${appUrl}/register/v1/admin/logout`,
+        // "http://localhost:4000/register/v1/admin/logout",
         {
           withCredentials: true,
         }

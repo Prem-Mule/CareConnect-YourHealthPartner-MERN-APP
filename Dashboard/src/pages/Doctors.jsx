@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import { Navigate } from "react-router-dom";
 import { usercontext } from "../helper/AppWrapper";
 import "../App.css";
-import { FaClinicMedical } from "react-icons/fa";
+const appUrl = import.meta.env.VITE_API_URL;
 
 const Doctors = () => {
   const [doctors, setDoctors] = useState([]);
@@ -13,7 +13,8 @@ const Doctors = () => {
     const fetchDoctors = async () => {
       try {
         const { data } = await axios.get(
-          "http://localhost:4000/register/v1/doctors",
+          `${appUrl}/register/v1/doctors`,
+          // "http://localhost:4000/register/v1/doctors",
           { withCredentials: true }
         );
         setDoctors(data.doctors);
