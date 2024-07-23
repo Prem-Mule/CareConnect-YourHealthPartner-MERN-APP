@@ -11,7 +11,7 @@ const { appointmentRouter } = require("./Router/appointmentRouter.js");
 // Middleware for handling CORS (Cross-Origin Resource Sharing) for frontend and dashboard URLs
 app.use(
   cors({
-    origin: [process.env.FRONTEND_URL, process.env.DASHBOARD_URL], // Allow requests from these origins
+    origin: process.env.FRONTEND_URL || process.env.DASHBOARD_URL, // Allow requests from these origins
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Allow these HTTP methods
     allowedHeaders: ["Content-Type", "Authorization"], // Allow these headers
     credentials: true, // Allow credentials (cookies, authorization headers, etc.)
