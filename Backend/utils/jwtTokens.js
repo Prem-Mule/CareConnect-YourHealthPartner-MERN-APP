@@ -9,9 +9,10 @@ const generateTokens = (user, message, statuscode, res) => {
       // expires: new Date(
       //   Date.now() + process.env.COOKIE_EXPIRES * 24 * 60 * 60 * 1000
       // ), // Convert days to milliseconds
-      expiresIn: new Date(
-        Date.now() + process.env.COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000
+      expires: new Date(
+        Date.now() + process.env.COOKIE_EXPIRES * 24 * 60 * 60 * 1000
       ), // Cookie expiry set to X days
+      // Cookie expiry set to X days
       httpOnly: true,
       sameSite: "Strict", // Ensures the cookie is not sent with cross-site requests
     })
