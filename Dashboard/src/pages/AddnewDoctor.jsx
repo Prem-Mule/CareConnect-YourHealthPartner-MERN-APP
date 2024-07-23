@@ -3,8 +3,9 @@ import React, { useContext, useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import axios from "axios";
-import { usercontext } from "../helper/AppWrapper.jsx";
+// import { usercontext } from "../helper/AppWrapper.jsx";
 import { FaClinicMedical } from "react-icons/fa";
+import { usercontext } from "../main";
 const appUrl = import.meta.env.VITE_API_URL;
 
 const AddnewDoctor = () => {

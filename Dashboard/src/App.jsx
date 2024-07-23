@@ -13,7 +13,8 @@ import Doctors from "./pages/Doctors.jsx";
 import "react-toastify/dist/ReactToastify.css"; // Ensure you have this import for toast styles
 import Sidebar from "./components/Sidebar.jsx";
 import "./App.css";
-import { usercontext } from "./helper/Appwrapper.jsx";
+import { usercontext } from "./main.jsx";
+// import { usercontext } from "./helper/Appwrapper.jsx";
 const appUrl = import.meta.env.VITE_API_URL;
 
 const App = () => {
