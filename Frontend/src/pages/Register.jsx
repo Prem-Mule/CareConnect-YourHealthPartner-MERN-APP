@@ -4,6 +4,7 @@ import { usercontext } from "../helper/Context";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
+const appUrl = import.meta.env.VITE_API_URL;
 
 const Register = () => {
   const { isAuthenticated, setIsAuthenticated, setUser } =
@@ -26,7 +27,8 @@ const Register = () => {
     e.preventDefault();
     const response = await axios
       .post(
-        "http://localhost:4000/register/v1/registeruser",
+        // "http://localhost:4000/register/v1/registeruser",
+        `${appUrl}/register/v1/registeruser`,
         { ...userValues, role: "Patient" },
         {
           withCredentials: true,

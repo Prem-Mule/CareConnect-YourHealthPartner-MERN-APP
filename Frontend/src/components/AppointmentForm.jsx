@@ -219,6 +219,7 @@ import axios from "axios";
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { toast } from "react-toastify";
+const appUrl = import.meta.env.VITE_API_URL;
 
 const AppointmentForm = () => {
   const [firstName, setFirstName] = useState("");
@@ -251,7 +252,8 @@ const AppointmentForm = () => {
   useEffect(() => {
     const fetchDoctors = async () => {
       const { data } = await axios.get(
-        "http://localhost:4000/register/v1/doctors",
+        `${appUrl}/register/v1/doctors`,
+        // "http://localhost:4000/register/v1/doctors",
         { withCredentials: true }
       );
       setDoctors(data.doctors);
@@ -264,7 +266,8 @@ const AppointmentForm = () => {
     try {
       const hasVisitedBool = Boolean(hasVisited);
       const { data } = await axios.post(
-        "http://localhost:4000/api/v1/appointment/post",
+        `${appUrl}/api/v1/appointment/post`,
+        // "http://localhost:4000/api/v1/appointment/post",
         {
           firstName,
           lastName,

@@ -1,6 +1,9 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
-import axios, { Axios } from "axios";
+import axios from "axios";
 import { toast } from "react-toastify";
+const appUrl = import.meta.env.VITE_API_URL;
+
 const MessageForm = () => {
   const [formValues, setFormValues] = useState({
     firstName: "",
@@ -24,10 +27,15 @@ const MessageForm = () => {
     console.log("Form submitted:", formValues);
     try {
       await axios
-        .post("http://localhost:4000/api/sendmsg", formValues, {
-          headers: { "Content-Type": "application/json" },
-          withCredentials: true,
-        })
+        .post(
+          `${appUrl}/api/sendmsg`,
+          // "http://localhost:4000/api/sendmsg",
+          formValues,
+          {
+            headers: { "Content-Type": "application/json" },
+            withCredentials: true,
+          }
+        )
         .then((resp) => {
           console.log("data response", resp.data);
           setFormValues({
@@ -54,8 +62,9 @@ const MessageForm = () => {
         onSubmit={handleSubmit}
         className="bg-white p-8 rounded shadow-md w-full max-w-4xl"
       >
-        
-        <h2 className="text-[2vw] font-['poppins'] text-center mb-[3vw] text-zinc-800">Send us a Message</h2>
+        <h2 className="text-[2vw] font-['poppins'] text-center mb-[3vw] text-zinc-800">
+          Send us a Message
+        </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-zinc-600">
           <div className="flex flex-col">
             <label htmlFor="firstName" className="mb-2 font-semibold">
