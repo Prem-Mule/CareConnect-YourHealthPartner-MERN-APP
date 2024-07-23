@@ -83,6 +83,7 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import axios from "axios";
 import Footer from "./components/Footer";
+const appUrl = import.meta.env.VITE_API_URL;
 
 const App = () => {
   const { isAuthenticated, setIsAuthenticated, setUser } =
@@ -92,7 +93,8 @@ const App = () => {
     const fetchUser = async () => {
       try {
         const resp = await axios.get(
-          "http://localhost:4000/register/v1/patient/me",
+          // "http://localhost:4000/register/v1/patient/me",
+          `${appUrl}/register/v1/patient/me`,
           {
             withCredentials: true,
           }
