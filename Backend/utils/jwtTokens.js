@@ -6,10 +6,16 @@ const generateTokens = (user, message, statuscode, res) => {
   res
     .status(statuscode)
     .cookie(cookieName, token, {
+      // expires: new Date(
+      //   Date.now() + process.env.COOKIE_EXPIRES * 24 * 60 * 60 * 1000
+      // ), // Convert days to milliseconds
       expires: new Date(
-        Date.now() + process.env.COOKIE_EXPIRES * 24 * 60 * 60 * 1000
-      ), // Convert days to milliseconds
+        Date.now() + process.env.COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000
+      ), // Cookie expiry set to X days
+      httpOnly: true,
+      sameSite: "Strict", // Ensures the cookie is not sent with cross-site requests
     })
+
     .json({
       success: true,
       message,
