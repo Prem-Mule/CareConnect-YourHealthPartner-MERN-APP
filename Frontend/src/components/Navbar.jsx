@@ -6,6 +6,7 @@ import axios from "axios";
 import { Bounce, toast } from "react-toastify";
 import { FaClinicMedical } from "react-icons/fa";
 import { TiThMenu } from "react-icons/ti";
+const appUrl = import.meta.env.VITE_API_URL;
 
 const Navbar = () => {
   const [show, setshow] = useState(false);
@@ -15,7 +16,8 @@ const Navbar = () => {
   const handleLogout = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:4000/register/v1/patient/logout",
+        `${appUrl}/register/v1/patient/logout`,
+        // "http://localhost:4000/register/v1/patient/logout",
         {
           withCredentials: true,
         }
