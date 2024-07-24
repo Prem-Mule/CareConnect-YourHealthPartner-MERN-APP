@@ -70,7 +70,7 @@ const Dashboard = () => {
               <div>
                 <p>Hello ,</p>
                 <h5 className="text-xl font-semibold">
-                  {admin && `${admin.firstName} ${admin.lastName}`}
+                  {admin ? `${admin.firstName} ${admin.lastName}` : "Sir"}
                 </h5>
               </div>
               <p>
