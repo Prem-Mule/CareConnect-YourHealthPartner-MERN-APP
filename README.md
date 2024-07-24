@@ -41,7 +41,7 @@ To set up the project locally, follow these steps:
 
     ```bash
     git clone https://github.com/Prem-Mule/CareConnect-YourHealthPartner-MERN-APP
-    cd careconnect
+    cd CareConnect-YourHealthPartner-MERN-APP
     ```
 
 2. **Install dependencies**
